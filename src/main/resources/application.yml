@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: bai2
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://aws-0-ap-northeast-1.pooler.supabase.com:6543/postgres
+    username: postgres.rfynhwinqfpunvpjxslg
+    password: Student@1801200
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: qwen3:4b
+          temperature: 0.2
+      embedding:
+        options:
+          model: nomic-embed-text
+
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        distance-type: cosine_distance
+        dimensions: 768
+        index-type: hnsw
+
